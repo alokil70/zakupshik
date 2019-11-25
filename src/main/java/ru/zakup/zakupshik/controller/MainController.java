@@ -19,12 +19,6 @@ public class MainController {
     @GetMapping("/")
     public String getMessages(String name, Model model) {
 
-        Message message = new Message();
-        //message.setId(1L);
-        message.setText("opera");
-        message.setTag("tag");
-        messageRepo.save(message);
-
         List<Message> allMessages = messageRepo.findAll();
         model.addAttribute("messages", allMessages);
         return "main";
