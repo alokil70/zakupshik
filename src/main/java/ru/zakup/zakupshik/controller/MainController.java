@@ -25,7 +25,7 @@ public class MainController {
     }
 
     @PostMapping("/")
-    public String addMessage(){
+    public String addMessage() {
         return "main";
     }
 }
