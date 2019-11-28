@@ -1,28 +1,30 @@
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Sweater</title>
+    <title>Main page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
-<#include "fragment/navbar.ftl">
+<div th:replace="fragment/navbar :: navbar"></div>
+
 
 <div class="container mt-4">
 
-
     <div class="card-columns">
-        <#list messages as message>
-            <div class="card text-center mb-3" style="width: 18rem;">
-                <div class="card-body">
-                    <p class="card-text">${message.text}</p>
-                    <i class="card-text">${message.tag}</i>
-                </div>
-            </div>
-        </#list>
-    </div>
 
+        <div class="card border-primary text-center mb-3" style="width: 18rem;" th:each="message : ${messages}">
+            <div class="card-body">
+                <p class="card-text" th:text="${message.text}">text</p>
+                <i class="card-text" th:text="${message.tag}">tag</i>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 
 
